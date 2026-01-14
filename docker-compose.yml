@@ -6,6 +6,13 @@ services:
     environment:
       - PORT=3000
     # ✅ Pas de ports: l'API n'est accessible que depuis le réseau Docker
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+
+
     expose:
       - "3000"
     # ✅ Healthcheck natif Node.js (pas de curl/wget)
